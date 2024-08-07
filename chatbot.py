@@ -1,5 +1,5 @@
 import spacy
-import random
+
 
 
 nlp = spacy.load("en_core_web_sm")
@@ -17,13 +17,13 @@ responses = {
 
                 
 def classify_input(user_input):
-    doc = nlp(user_input.lower()):
+    doc = nlp(user_input.lower())
     for token in doc:
         if token.lemma_ in ["hello", "hi", "hey"]:
            return "greetings"
         elif token.lemma_ in ["bye", "goodbye", "later"]:
            return "farewell"
-         elif token.lemma_ in ["name", "who"]:
+        elif token.lemma_ in ["name", "who"]:
            return "name_query"
         elif  token.lemma_ in ["thanks", "thank"]:
            return "thanks"
@@ -36,7 +36,7 @@ def classify_input(user_input):
     return "default"
 
 
-def generate_response(classfication, user_input=none):
+def generate_response(classification, user_input=none):
     if classification == "name_provide":
        name = user_input.split()[-1]
        return random.choice(responses[classification]).format(name=name)
@@ -51,7 +51,7 @@ def chatbot():
            print("ChatBot: goodbye! Have a great day!")
            break
         classification = classify_input(user_input)
-         response = generate_rsponse(classification, user_ input)
+         response = generate_response(classification, user_ input)
          print(f"ChatBot: {response}")
 
 if __name__ == "__main__":
