@@ -11,7 +11,7 @@ responses = {
     "name_query": ["I'm ChatBot.", "You can call me ChatBot.", "I'm simple ChatBot.", "I can go by ChatBot.", "My name is ChatBot."],
     "name_provide": ["Nice to meet you, {name}!.", "Hello {name}.", "Great to meet you {name}.", "Pleased to meet you {name}.", "Hello there {name}.",],
     "thanks":  ["You are welcome", "No problem", "Anytime", "Glad to help", "You bet"],
-    "how_are_you ":  ["I am just a program,But i am here to help!", "I am good thanks for asking!", "I am here to assit you!", "Doing well, Thanks!", "I am okay, Thanks!",],
+    "how_are_you":  ["I am just a program,But i am here to help!", "I am good thanks for asking!", "I am here to assit you!", "Doing well, Thanks!", "I am okay, Thanks!",],
     "default": ["I am not sure I understand", "Can you rephrase that", "I am here to help", "Sorry i did not catch that", "Could you clarify that for me"],}
 }
 
@@ -36,11 +36,11 @@ def classify_input(user_input):
     return "default"
 
 
-def generate_response(classification, user_input=none):
+def generate_response(classification, user_input=None):
     if classification == "name_provide":
        name = user_input.split()[-1]
        return random.choice(responses[classification]).format(name=name)
-    return random.choice(responses[classificatication])
+    return random.choice(responses[classification])
  
 def chatbot():
     print("ChatBot: Hello!How can i assist you today?")
@@ -50,7 +50,7 @@ def chatbot():
            print("ChatBot: goodbye! Have a great day!")
            break
         classification = classify_input(user_input)
-        response = generate_response(classification, user_ input)
+        response = generate_response(classification, user_input)
         print(f"ChatBot: {response}")
 
 if __name__ == "__main__":
