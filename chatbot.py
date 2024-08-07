@@ -6,16 +6,16 @@ nlp = spacy.load("en_core_web_sm")
 
 
 responses = {
-  "greetings": ["Hello","Hi there", "Hey! How can I help you?", "Greetings!", Nice to see you!"]
-               ["Goodbye!", "See you soon!", "Bye! Have a great dat", "Take care
+    "greetings": ["Hello","Hi there", "Hey! How can I help you?", "Greetings!", "Nice to see you!"],
+    "farewell":  ["Goodbye!", "See you soon!", "Bye! Have a great dat", "Take care!", "Untill next time"],
+    "name_query": ["I'm ChatBot.", "You can call me ChatBot.", "I'm simple ChatBot.", "I can go by ChatBot.", "My name is ChatBot."],
+    "name_provide": ["Nice to meet you, {name}!.", "Hello{name}.", "Great to meet you {name}.", "Pleased to meeet you {name}.", "Hello there {namr}.",],
+    "thanks":  ["You are welcome", "No promblem", "Anytime", "Glad to help", "You bet"],
+    "how_are_you ":  ["I am just a program,But i am here to help!", "I am good thanks for asking!", "I am here to assit you!", "Doing well, Thanks!", "I am okay, Thanks!",],
+    "default": ["I am not sure I understand", "Can you rephrase that", "I am here to help", "Sorry i did not catch that", "Could you clarify that for me"],}
+}
 
-
-
-
-
-
-
-
+                
 def classify_input(user_input):
     doc = nlp(user_input.loer()):
     for token in doc:
